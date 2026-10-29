@@ -1406,7 +1406,7 @@
     h+='<div class="lang-switch" role="group" aria-label="'+t('langLabel')+'">';
     LANGS.forEach(function(la){ var sel=state.lang===la.id; h+='<button class="lang-btn'+(sel?' selected':'')+'" data-lang="'+la.id+'" aria-pressed="'+sel+'">'+la[state.lang]+'</button>'; });
     h+='</div>';
-    h+='<div class="links"><button class="link-btn" id="ovBtn">'+t('ovLink')+'</button><button class="link-btn" id="topicsBtn">'+t('topicsLink')+'</button></div>';
+    h+='<div class="links"><button class="link-btn" id="topicsBtn">'+t('topicsLink')+'</button></div>';
     el.innerHTML=h;
 
     var act = activeLevels().map(function(Lv){ return Lv.id; });
@@ -1421,7 +1421,6 @@
     var rb=document.getElementById('resumeBtn'); if(rb) rb.onclick=function(){ go('play'); };
     el.querySelectorAll('.lang-btn').forEach(function(b){ b.onclick=function(){ state.lang=b.getAttribute('data-lang'); save('linfkt-lang',state.lang); renderStart(); }; });
     document.getElementById('topicsBtn').onclick=function(){ go('topics'); };
-    document.getElementById('ovBtn').onclick=function(){ state.ov=null; go('overview'); window.scrollTo(0,0); };
   }
 
   // ---------- Themen-Menü ----------
